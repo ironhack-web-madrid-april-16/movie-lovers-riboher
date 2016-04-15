@@ -5,23 +5,34 @@ require 'pry'
 
 class Search
 
-  def initialize(movie)
-    @movies = Imdb::Search.new(movie).movies[0..20]
-    binding.pry
+  def initialize(movies)
+    @movies = movies
   end
 
   def get_poster
-    @posters = @movies
-    @posters.map{|m| m.poster if !m.poster.nil? && !m.year.nil?}
-    binding.pry
-    posters.slice!(0,9)
+    counter = 0
+    posters = []
+    while posters.size < 9 do
+      if !@movies[counter].poster.nil? && !@movies[counter].year.nil?
+        posters << @movies[counter].poster
+        # binding.pry
+      end
+      counter += 1
+    end
+    posters
   end
 
   def get_releases
-    @years = @movies
-    @years.map{|m| m.year if !m.poster.nil? && !m.year.nil?}
-    binding.pry
-    years.slice!(0,9)
+    counter = 0
+    years = []
+    while years.size < 9 do
+      if !@movies[counter].poster.nil? && !@movies[counter].year.nil?
+        years << @movies[counter].year
+        # binding.pry
+      end
+      counter += 1
+    end
+    years
   end
 
   def check_answer(years_matcher,quiz_question,answer)
