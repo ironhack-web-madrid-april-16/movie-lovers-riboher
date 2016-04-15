@@ -1,0 +1,24 @@
+body {
+	_background: url('bg-films.jpg') no-repeat;
+	background-size: cover;
+}
+
+.movie-search{
+	width: 50%;
+    margin: 0 auto;
+    margin-left: 34%;
+    margin-top: 10%;
+}
+
+.movie-search h1 {
+	color: #fff;
+	font-family: helvetica;
+}
+
+#search-form input {
+	height: 25px;
+	background: rgba(255,255,255,.5);
+	border: 0;
+	border-radius: 3px;
+	width: 250px;
+}
