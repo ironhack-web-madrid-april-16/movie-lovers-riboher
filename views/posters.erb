@@ -8,10 +8,9 @@
 	<h1>Which movie is from <%= @@quiz_year %></h1>
 	<% @@posters.each_with_index do |poster,index| %>
 	<div class="movie" style="width: 25%;float:left;">
-		<img src="<%= poster %>" alt="" style="max-height: 200px;">
-		<form action="/check_result/<%= index %>" method="POST" style="display:inline">
-			<button type="submit">Click here!</button>
-		</form>
+		<a href="/check_result/<%= index %>">
+			<img src="<%= poster %>" alt="" style="max-height: 200px;">
+		</a>
 	</div>
 	<% end %>
 
