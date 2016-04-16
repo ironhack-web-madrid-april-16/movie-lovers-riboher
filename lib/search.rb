@@ -23,13 +23,24 @@ class Search
     counter = 0
     years = []
     while years.size < 9 do
-      if !@movies[counter].poster.nil? && !@movies[counter].year.nil?
-        years << @movies[counter].year
-        # binding.pry
-      end
+      years << @movies[counter].year unless @movies[counter].poster.nil?
       counter += 1
     end
     years
+  end
+
+  def get_directors
+    counter = 0
+    directors = []
+    while directors.size < 9 do
+      directors << @movies[counter].director unless @movies[counter].poster.nil?
+      counter += 1
+    end
+    directors
+  end
+
+  def randomize_question(num)
+    num == 0 ? get_releases : get_directors
   end
 
   def check_answer(years_matcher,quiz_question,answer)
