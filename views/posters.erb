@@ -3,13 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Films</title>
+	<link rel="stylesheet" href="style.css">
 </head>
-<body style="max-width: 900px; margin: 0 auto;">
-	<h1>Which movie is from <%= @@quiz_year %></h1>
+<body class="posters">
+	<% if @@gen_question == 0 %>
+		<h1>Which movie is from <%= @@quiz_key %>?</h1>
+	<% else %>
+		<h1>Which movie was directed by <%= @@quiz_key.join("") %>?</h1>
+	<% end %>
 	<% @@posters.each_with_index do |poster,index| %>
-	<div class="movie" style="width: 25%;float:left;">
+	<div class="movie">
 		<a href="/check_result/<%= index %>">
-			<img src="<%= poster %>" alt="" style="max-height: 200px;">
+			<img src="<%= poster %>" alt="">
 		</a>
 	</div>
 	<% end %>
