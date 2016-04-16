@@ -13,10 +13,7 @@ class Search
     counter = 0
     posters = []
     while posters.size < 9 do
-      if !@movies[counter].poster.nil? && !@movies[counter].year.nil?
-        posters << @movies[counter].poster
-        # binding.pry
-      end
+      posters << @movies[counter].poster unless @movies[counter].poster.nil?
       counter += 1
     end
     posters
